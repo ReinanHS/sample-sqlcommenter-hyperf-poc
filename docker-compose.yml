@@ -1,0 +1,39 @@
+version: '3'
+services:
+  mysql:
+    container_name: "mysql-skeleton"
+    image: 'mysql:8.0.31'
+    working_dir: /data
+    volumes:
+      - 'mysql_data:/data'
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=hyperf
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=secret
+    ports:
+      - '39002:3306'
+  app-skeleton:
+    container_name: sample-sqlcommenter-hyperf-poc
+    image: sample-sqlcommenter-hyperf-app
+    user: "${UID}:${GID}"
+    build:
+      context: .docker/development
+    tty: true
+    volumes:
+      - ./:/opt/www
+    ports:
+      - "9501:9501"
+    environment:
+      - APP_ENV=dev
+      - SCAN_CACHEABLE=false
+      - PHP_IDE_CONFIG=serverName=sample-sqlcommenter-hyperf-poc
+      - DB_DATABASE=hyperf
+      - DB_USERNAME=admin
+      - DB_PASSWORD=secret
+      - DB_HOST=mysql
+    depends_on:
+      - mysql
+
+volumes:
+  mysql_data: {}
