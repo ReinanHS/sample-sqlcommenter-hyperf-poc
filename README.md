@@ -95,7 +95,6 @@ gcloud sql users create demo \
 Obtenha o endereço privado da instância do banco de dados e defina as variáveis de ambiente necessárias:
 
 ```sh
-Copiar código
 export DB_HOST=$(gcloud sql instances list --filter=name:sample-sqlcommenter-database --format="value(PRIVATE_ADDRESS)") 
 export DB_DATABASE=employees 
 export DB_USERNAME=demo 
