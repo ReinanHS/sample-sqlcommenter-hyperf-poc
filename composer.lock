@@ -681,16 +681,16 @@
         },
         {
             "name": "hyperf/cache",
-            "version": "v3.1.27",
+            "version": "v3.1.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hyperf/cache.git",
-                "reference": "1ff87828ca3fba792f3637a97da994bb6e1aa69c"
+                "reference": "a9a8e166f92eb47b4ad9f58807c36505c2d26708"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hyperf/cache/zipball/1ff87828ca3fba792f3637a97da994bb6e1aa69c",
-                "reference": "1ff87828ca3fba792f3637a97da994bb6e1aa69c",
+                "url": "https://api.github.com/repos/hyperf/cache/zipball/a9a8e166f92eb47b4ad9f58807c36505c2d26708",
+                "reference": "a9a8e166f92eb47b4ad9f58807c36505c2d26708",
                 "shasum": ""
             },
             "require": {
@@ -748,7 +748,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2024-06-17T01:51:06+00:00"
+            "time": "2024-06-25T06:44:27+00:00"
         },
         {
             "name": "hyperf/code-parser",
@@ -1214,16 +1214,16 @@
         },
         {
             "name": "hyperf/contract",
-            "version": "v3.1.27",
+            "version": "v3.1.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hyperf/contract.git",
-                "reference": "f6465a1d9b9f9ac5a48fa5d250c45d00a874cc19"
+                "reference": "4e478613d6d0bfc0e215b009d93d4c5e7a993001"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hyperf/contract/zipball/f6465a1d9b9f9ac5a48fa5d250c45d00a874cc19",
-                "reference": "f6465a1d9b9f9ac5a48fa5d250c45d00a874cc19",
+                "url": "https://api.github.com/repos/hyperf/contract/zipball/4e478613d6d0bfc0e215b009d93d4c5e7a993001",
+                "reference": "4e478613d6d0bfc0e215b009d93d4c5e7a993001",
                 "shasum": ""
             },
             "require": {
@@ -1267,7 +1267,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2024-06-17T01:51:06+00:00"
+            "time": "2024-06-24T02:36:02+00:00"
         },
         {
             "name": "hyperf/coordinator",
@@ -1539,16 +1539,16 @@
         },
         {
             "name": "hyperf/di",
-            "version": "v3.1.27",
+            "version": "v3.1.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hyperf/di.git",
-                "reference": "c98970c77bc024af7c9ac07109b67ad246e4ee18"
+                "reference": "6ffef4c7ff0d59380fa1d894ec278054b87c17cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hyperf/di/zipball/c98970c77bc024af7c9ac07109b67ad246e4ee18",
-                "reference": "c98970c77bc024af7c9ac07109b67ad246e4ee18",
+                "url": "https://api.github.com/repos/hyperf/di/zipball/6ffef4c7ff0d59380fa1d894ec278054b87c17cb",
+                "reference": "6ffef4c7ff0d59380fa1d894ec278054b87c17cb",
                 "shasum": ""
             },
             "require": {
@@ -1611,7 +1611,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2024-06-17T01:51:06+00:00"
+            "time": "2024-06-26T03:31:21+00:00"
         },
         {
             "name": "hyperf/dispatcher",
@@ -3430,16 +3430,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "3.6.0",
+            "version": "3.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "4b18b21a5527a3d5ffdac2fd35d3ab25a9597654"
+                "reference": "f4393b648b78a5408747de94fca38beb5f7e9ef8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/4b18b21a5527a3d5ffdac2fd35d3ab25a9597654",
-                "reference": "4b18b21a5527a3d5ffdac2fd35d3ab25a9597654",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/f4393b648b78a5408747de94fca38beb5f7e9ef8",
+                "reference": "f4393b648b78a5408747de94fca38beb5f7e9ef8",
                 "shasum": ""
             },
             "require": {
@@ -3515,7 +3515,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Seldaek/monolog/issues",
-                "source": "https://github.com/Seldaek/monolog/tree/3.6.0"
+                "source": "https://github.com/Seldaek/monolog/tree/3.7.0"
             },
             "funding": [
                 {
@@ -3527,7 +3527,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-04-12T21:02:21+00:00"
+            "time": "2024-06-28T09:40:51+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -4559,12 +4559,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ReinanHS/sqlcommenter-hyperf.git",
-                "reference": "5739a8da7449007ca203045d9629438e683fb32c"
+                "reference": "fe0ceed6b195cbd3affb10d2d9dd6309db94468c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ReinanHS/sqlcommenter-hyperf/zipball/5739a8da7449007ca203045d9629438e683fb32c",
-                "reference": "5739a8da7449007ca203045d9629438e683fb32c",
+                "url": "https://api.github.com/repos/ReinanHS/sqlcommenter-hyperf/zipball/fe0ceed6b195cbd3affb10d2d9dd6309db94468c",
+                "reference": "fe0ceed6b195cbd3affb10d2d9dd6309db94468c",
                 "shasum": ""
             },
             "require": {
@@ -4615,7 +4615,7 @@
                 "security": "https://github.com/reinanhs/sqlcommenter-hyperf/security/advisories",
                 "source": "https://github.com/reinanhs/sqlcommenter-hyperf"
             },
-            "time": "2024-06-19T23:30:21+00:00"
+            "time": "2024-06-29T13:59:55+00:00"
         },
         {
             "name": "swow/psr7-plus",
@@ -4669,16 +4669,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v7.1.1",
+            "version": "v7.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "9b008f2d7b21c74ef4d0c3de6077a642bc55ece3"
+                "reference": "0aa29ca177f432ab68533432db0de059f39c92ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/9b008f2d7b21c74ef4d0c3de6077a642bc55ece3",
-                "reference": "9b008f2d7b21c74ef4d0c3de6077a642bc55ece3",
+                "url": "https://api.github.com/repos/symfony/console/zipball/0aa29ca177f432ab68533432db0de059f39c92ae",
+                "reference": "0aa29ca177f432ab68533432db0de059f39c92ae",
                 "shasum": ""
             },
             "require": {
@@ -4742,7 +4742,7 @@
                 "terminal"
             ],
             "support": {
-                "source": "https://github.com/symfony/console/tree/v7.1.1"
+                "source": "https://github.com/symfony/console/tree/v7.1.2"
             },
             "funding": [
                 {
@@ -4758,7 +4758,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-05-31T14:57:53+00:00"
+            "time": "2024-06-28T10:03:55+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -5374,16 +5374,16 @@
         },
         {
             "name": "symfony/string",
-            "version": "v7.1.1",
+            "version": "v7.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/string.git",
-                "reference": "60bc311c74e0af215101235aa6f471bcbc032df2"
+                "reference": "14221089ac66cf82e3cf3d1c1da65de305587ff8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/string/zipball/60bc311c74e0af215101235aa6f471bcbc032df2",
-                "reference": "60bc311c74e0af215101235aa6f471bcbc032df2",
+                "url": "https://api.github.com/repos/symfony/string/zipball/14221089ac66cf82e3cf3d1c1da65de305587ff8",
+                "reference": "14221089ac66cf82e3cf3d1c1da65de305587ff8",
                 "shasum": ""
             },
             "require": {
@@ -5441,7 +5441,7 @@
                 "utf8"
             ],
             "support": {
-                "source": "https://github.com/symfony/string/tree/v7.1.1"
+                "source": "https://github.com/symfony/string/tree/v7.1.2"
             },
             "funding": [
                 {
@@ -5457,7 +5457,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-06-04T06:40:14+00:00"
+            "time": "2024-06-28T09:27:18+00:00"
         },
         {
             "name": "symfony/translation",
@@ -6722,16 +6722,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "10.1.14",
+            "version": "10.1.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "e3f51450ebffe8e0efdf7346ae966a656f7d5e5b"
+                "reference": "5da8b1728acd1e6ffdf2ff32ffbdfd04307f26ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/e3f51450ebffe8e0efdf7346ae966a656f7d5e5b",
-                "reference": "e3f51450ebffe8e0efdf7346ae966a656f7d5e5b",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/5da8b1728acd1e6ffdf2ff32ffbdfd04307f26ae",
+                "reference": "5da8b1728acd1e6ffdf2ff32ffbdfd04307f26ae",
                 "shasum": ""
             },
             "require": {
@@ -6788,7 +6788,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
                 "security": "https://github.com/sebastianbergmann/php-code-coverage/security/policy",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/10.1.14"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/10.1.15"
             },
             "funding": [
                 {
@@ -6796,7 +6796,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-03-12T15:33:41+00:00"
+            "time": "2024-06-29T08:25:15+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -8778,16 +8778,16 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v7.1.1",
+            "version": "v7.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "802e87002f919296c9f606457d9fa327a0b3d6b2"
+                "reference": "92a91985250c251de9b947a14bb2c9390b1a562c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/802e87002f919296c9f606457d9fa327a0b3d6b2",
-                "reference": "802e87002f919296c9f606457d9fa327a0b3d6b2",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/92a91985250c251de9b947a14bb2c9390b1a562c",
+                "reference": "92a91985250c251de9b947a14bb2c9390b1a562c",
                 "shasum": ""
             },
             "require": {
@@ -8824,7 +8824,7 @@
             "description": "Provides basic utilities for the filesystem",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/filesystem/tree/v7.1.1"
+                "source": "https://github.com/symfony/filesystem/tree/v7.1.2"
             },
             "funding": [
                 {
@@ -8840,7 +8840,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-05-31T14:57:53+00:00"
+            "time": "2024-06-28T10:03:55+00:00"
         },
         {
             "name": "symfony/http-foundation",

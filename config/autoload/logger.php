@@ -9,20 +9,22 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
-
 use App\Processor\LogCustomProcessor;
+use Monolog\Formatter\GoogleCloudLoggingFormatter;
+use Monolog\Handler\StreamHandler;
+use Monolog\Level;
 
 return [
     'default' => [
         'handler' => [
-            'class' => Monolog\Handler\StreamHandler::class,
+            'class' => StreamHandler::class,
             'constructor' => [
                 'stream' => 'php://stdout',
-                'level' => \Monolog\Level::Debug,
+                'level' => Level::Debug,
             ],
         ],
         'formatter' => [
-            'class' => Monolog\Formatter\GoogleCloudLoggingFormatter::class,
+            'class' => GoogleCloudLoggingFormatter::class,
             'constructor' => [
                 'includeStacktraces' => true,
             ],
@@ -30,6 +32,5 @@ return [
         'processors' => [
             new LogCustomProcessor(),
         ],
-
     ],
 ];

@@ -1,5 +1,15 @@
 <?php
 
+declare(strict_types=1);
+/**
+ * This file is part of Hyperf.
+ *
+ * @link     https://www.hyperf.io
+ * @document https://hyperf.wiki
+ * @contact  group@hyperf.io
+ * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
+ */
+
 namespace App\Processor;
 
 use Hyperf\Context\ApplicationContext;
@@ -9,6 +19,7 @@ use OpenTracing\Span;
 use OpenTracing\Tracer;
 
 use function Hyperf\Support\env;
+
 use const OpenTracing\Formats\TEXT_MAP;
 
 class LogCustomProcessor
@@ -44,5 +55,4 @@ class LogCustomProcessor
             'logging.googleapis.com/trace_sampled' => $sampled,
         ];
     }
-
 }

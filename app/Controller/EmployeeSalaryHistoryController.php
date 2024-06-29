@@ -1,11 +1,21 @@
 <?php
 
+declare(strict_types=1);
+/**
+ * This file is part of Hyperf.
+ *
+ * @link     https://www.hyperf.io
+ * @document https://hyperf.wiki
+ * @contact  group@hyperf.io
+ * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
+ */
+
 namespace App\Controller;
 
 use Hyperf\DbConnection\Db;
 use Hyperf\HttpServer\Annotation\AutoController;
-use Psr\Http\Message\ResponseInterface;
 use Hyperf\HttpServer\Contract\ResponseInterface as HttpResponse;
+use Psr\Http\Message\ResponseInterface;
 
 #[AutoController(prefix: 'employee-salary-history')]
 class EmployeeSalaryHistoryController
@@ -30,7 +40,7 @@ class EmployeeSalaryHistoryController
             ->whereRaw('s.from_date >= de.from_date')
             ->whereRaw('s.to_date <= de.to_date')
             ->whereRaw('s.from_date >= t.from_date')
-            ->where(function($query) {
+            ->where(function ($query) {
                 $query->whereRaw('s.to_date <= t.to_date')
                     ->orWhereNull('t.to_date');
             })

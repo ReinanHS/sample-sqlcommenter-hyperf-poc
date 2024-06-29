@@ -1,4 +1,4 @@
-version: '3'
+version: '3.7'
 services:
   mysql:
     container_name: "mysql-skeleton"
@@ -23,7 +23,7 @@ services:
     volumes:
       - ./:/opt/www
     ports:
-      - "9501:9501"
+      - "9501:8080"
     environment:
       - APP_ENV=dev
       - SCAN_CACHEABLE=false
@@ -32,8 +32,21 @@ services:
       - DB_USERNAME=admin
       - DB_PASSWORD=secret
       - DB_HOST=mysql
+      - TRACER_DRIVER=zipkin
+      - ZIPKIN_ENDPOINT_URL=http://collector:9411/api/v2/spans
     depends_on:
       - mysql
+      - collector
+  collector:
+    image: otel/opentelemetry-collector-contrib:0.39.0
+    volumes:
+      - './.docker/development/collector-config.yaml:/etc/otel/config.yaml'
+    depends_on:
+      - zipkin
+  zipkin:
+    image: openzipkin/zipkin-slim
+    ports:
+      - '9411:9411'
 
 volumes:
   mysql_data: {}

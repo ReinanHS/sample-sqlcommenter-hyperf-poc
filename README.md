@@ -1,6 +1,6 @@
 # Sample Sqlcommenter Hyperf POC
 
-Esse é um projeto que tem o principal objetivo validar as configurações da biblioteca do sqlcommenter-hyperf. Além disso, alguns testes de performance são feitos dentro desse projeto para verificarmos o desempenho dessa ferramenta.
+Esse é um projeto que tem o principal objetivo validar as configurações da biblioteca do [sqlcommenter-hyperf](https://github.com/ReinanHS/sqlcommenter-hyperf). Além disso, alguns testes de performance são feitos dentro desse projeto para verificarmos o desempenho dessa ferramenta.
 
 ## Configuração inicial do projeto
 
@@ -28,6 +28,7 @@ Execute os comandos abaixo para instalar as dependências e rodar os testes:
 
 ```sh
 composer install
+php bin/hyperf.php migrate 
 composer test
 ```
 
@@ -79,6 +80,9 @@ Importe o banco de dados para a instância criada:
 gcloud sql import sql sample-sqlcommenter-database gs://$GCP_PROJECT_ID/sample-sqlcommenter-database.sql
 ```
 
+O banco de dados completo utilizado para a realização dos testes pode ser encontrado no site oficial do MySQL:
+
+- [MySQL: Employee database](https://dev.mysql.com/doc/index-other.html)
 
 ### Passo 4: Criar usuário para o banco de dados
 
