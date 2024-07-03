@@ -41,7 +41,7 @@ Siga as instruções abaixo para testar esse projeto dentro da Google Cloud.
 Primeiro, defina a variável de ambiente com o ID do seu projeto na Google Cloud:
 
 ```sh
-export GCP_PROJECT_ID=id-do-projeto
+export DEVSHELL_PROJECT_ID=id-do-projeto
 ```
 
 ### Passo 2: Criar a instância do Cloud SQL
@@ -50,7 +50,7 @@ Crie uma instância do Cloud SQL com as seguintes configurações:
 
 ```sh
 gcloud sql instances create sample-sqlcommenter-database \
-    --project=$GCP_PROJECT_ID \
+    --project=$DEVSHELL_PROJECT_ID \
     --database-version=MYSQL_8_0_31 \
     --tier=db-custom-1-3840 \
     --region=us-central1 \
@@ -63,7 +63,7 @@ gcloud sql instances create sample-sqlcommenter-database \
     --maintenance-window-day=SUN \
     --maintenance-window-hour=13 \
     --maintenance-release-channel=preview \
-    --network=projects/$GCP_PROJECT_ID/global/networks/default \
+    --network=projects/$DEVSHELL_PROJECT_ID/global/networks/default \
     --no-assign-ip \
     --insights-config-query-insights-enabled \
     --insights-config-record-application-tags \
@@ -77,7 +77,7 @@ gcloud sql instances create sample-sqlcommenter-database \
 Importe o banco de dados para a instância criada:
 
 ```sh
-gcloud sql import sql sample-sqlcommenter-database gs://$GCP_PROJECT_ID/sample-sqlcommenter-database.sql
+gcloud sql import sql sample-sqlcommenter-database gs://$DEVSHELL_PROJECT_ID/sample-sqlcommenter-database.sql
 ```
 
 O banco de dados completo utilizado para a realização dos testes pode ser encontrado no site oficial do MySQL:
@@ -125,7 +125,7 @@ gcloud run deploy sample-sqlcommenter-hyperf-poc \
 --network=default \
 --subnet=default \
 --vpc-egress=private-ranges-only \
---project=$GCP_PROJECT_ID
+--project=$DEVSHELL_PROJECT_ID
 ```
 
 ### Passo 7: Testar a aplicação
