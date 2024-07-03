@@ -74,15 +74,21 @@ gcloud sql instances create sample-sqlcommenter-database \
 
 ### Passo 3: Importar banco de dados
 
+Faça a configuração do IAM para o Cloud SQL no Bucket:
+
+```shell
+CLOUD_SQL_SA_NAME=$(gcloud sql instances describe sample-sqlcommenter-database --project=$DEVSHELL_PROJECT_ID --format="value(serviceAccountEmailAddress)")
+gsutil iam ch serviceAccount:${CLOUD_SQL_SA_NAME}:roles/storage.objectAdmin gs://$DEVSHELL_PROJECT_ID
+```
+O banco de dados completo utilizado para a realização dos testes pode ser encontrado no site oficial do MySQL:
+
+- [MySQL: Employee database](https://dev.mysql.com/doc/index-other.html)
+
 Importe o banco de dados para a instância criada:
 
 ```sh
 gcloud sql import sql sample-sqlcommenter-database gs://$DEVSHELL_PROJECT_ID/sample-sqlcommenter-database.sql
 ```
-
-O banco de dados completo utilizado para a realização dos testes pode ser encontrado no site oficial do MySQL:
-
-- [MySQL: Employee database](https://dev.mysql.com/doc/index-other.html)
 
 ### Passo 4: Criar usuário para o banco de dados
 
@@ -144,4 +150,5 @@ Para deletar os serviços e a instância do banco de dados criados, execute os s
 ```sh
 gcloud run services delete sample-sqlcommenter-hyperf-poc --region=us-central1
 gcloud sql instances delete sample-sqlcommenter-database
+gsutil iam ch -d serviceAccount:${CLOUD_SQL_SA_NAME}:roles/storage.objectAdmin gs://$DEVSHELL_PROJECT_ID
 ```
