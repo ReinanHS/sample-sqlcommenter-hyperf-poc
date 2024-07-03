@@ -34,7 +34,9 @@ class LogCustomProcessor
             $trace = $container->get(Tracer::class);
 
             $trace->inject(spanContext: $root->getContext(), format: TEXT_MAP, carrier: $context);
-            $record['extra'] = array_merge((array) $record['extra'], $this->processLoggingGoogleAPIs($context));
+            if ($context) {
+                $record['extra'] = array_merge((array) $record['extra'], $this->processLoggingGoogleAPIs($context));
+            }
         }
 
         return $record;

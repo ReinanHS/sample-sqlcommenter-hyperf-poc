@@ -4559,12 +4559,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ReinanHS/sqlcommenter-hyperf.git",
-                "reference": "fe0ceed6b195cbd3affb10d2d9dd6309db94468c"
+                "reference": "6cd358f2b6a4ecfe4f78bf41ceedfd1635812035"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ReinanHS/sqlcommenter-hyperf/zipball/fe0ceed6b195cbd3affb10d2d9dd6309db94468c",
-                "reference": "fe0ceed6b195cbd3affb10d2d9dd6309db94468c",
+                "url": "https://api.github.com/repos/ReinanHS/sqlcommenter-hyperf/zipball/6cd358f2b6a4ecfe4f78bf41ceedfd1635812035",
+                "reference": "6cd358f2b6a4ecfe4f78bf41ceedfd1635812035",
                 "shasum": ""
             },
             "require": {
@@ -4615,7 +4615,7 @@
                 "security": "https://github.com/reinanhs/sqlcommenter-hyperf/security/advisories",
                 "source": "https://github.com/reinanhs/sqlcommenter-hyperf"
             },
-            "time": "2024-06-29T13:59:55+00:00"
+            "time": "2024-07-03T22:59:48+00:00"
         },
         {
             "name": "swow/psr7-plus",
