@@ -120,6 +120,7 @@ gcloud run deploy sample-sqlcommenter-hyperf-poc \
 --set-env-vars=DB_DATABASE=$DB_DATABASE \
 --set-env-vars=DB_USERNAME=$DB_USERNAME \
 --set-env-vars=DB_PASSWORD=$DB_PASSWORD \
+--set-env-vars=SQLCOMMENTER_ENABLE=1 \
 --no-cpu-throttling \
 --region=us-central1 \
 --network=default \
