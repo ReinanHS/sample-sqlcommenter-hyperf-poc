@@ -74,12 +74,18 @@ gcloud sql instances create sample-sqlcommenter-database \
 
 ### Passo 3: Importar banco de dados
 
-Faça a configuração do IAM para o Cloud SQL no Bucket:
+Copie as configurações da conta de serviço para uma variável de ambiente:
 
 ```shell
 CLOUD_SQL_SA_NAME=$(gcloud sql instances describe sample-sqlcommenter-database --project=$DEVSHELL_PROJECT_ID --format="value(serviceAccountEmailAddress)")
+```
+
+Faça a configuração do IAM para o Cloud SQL no Bucket:
+
+```shell
 gsutil iam ch serviceAccount:${CLOUD_SQL_SA_NAME}:roles/storage.objectAdmin gs://$DEVSHELL_PROJECT_ID
 ```
+
 O banco de dados completo utilizado para a realização dos testes pode ser encontrado no site oficial do MySQL:
 
 - [MySQL: Employee database](https://dev.mysql.com/doc/index-other.html)
