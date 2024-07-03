@@ -143,10 +143,16 @@ gcloud run deploy sample-sqlcommenter-hyperf-poc \
 
 ### Passo 7: Testar a aplicação
 
+Execute o comando abaixo para exportar o endereço do aplicativo de teste:
+
+```shell
+export APP_URL=$(gcloud run services describe sample-sqlcommenter-hyperf-poc --platform managed --region=us-central1 --format 'value(status.url)')
+```
+
 Para testar a aplicação, execute o comando abaixo e obtenha a URL do serviço:
 
 ```sh
-curl $(gcloud run services describe sample-sqlcommenter-hyperf-poc --platform managed --region=us-central1 --format 'value(status.url)')
+curl "${APP_URL}/"
 ```
 
 ### Passo 8: Limpeza dos recursos
