@@ -125,7 +125,8 @@ Implante sua aplicação no Cloud Run com as seguintes configurações:
 gcloud run deploy sample-sqlcommenter-hyperf-poc \
 --image=reinanhs/sample-sqlcommenter-hyperf-poc:benchmarking \
 --allow-unauthenticated \
---memory=1Gi \
+--memory=2Gi \
+--concurrency=1000 \
 --min-instances=1 \
 --max-instances=1 \
 --set-env-vars=DB_HOST=$DB_HOST \
@@ -151,8 +152,22 @@ export APP_URL=$(gcloud run services describe sample-sqlcommenter-hyperf-poc --p
 
 Para testar a aplicação, execute o comando abaixo e obtenha a URL do serviço:
 
+#### Teste básico
+
 ```sh
 curl "${APP_URL}/"
+```
+
+#### Employees test
+
+```sh
+curl "${APP_URL}/employees"
+```
+
+#### callable test
+
+```sh
+curl "${APP_URL}/callable"
 ```
 
 ### Passo 8: Limpeza dos recursos
