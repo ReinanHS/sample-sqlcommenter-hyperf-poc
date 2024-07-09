@@ -38,6 +38,7 @@ gcloud beta container --project ${DEVSHELL_PROJECT_ID} clusters create "poc-sqlc
 --max-unavailable-upgrade 0 \
 --binauthz-evaluation-mode=DISABLED \
 --enable-managed-prometheus \
+--workload-pool "${DEVSHELL_PROJECT_ID}.svc.id.goog" \
 --enable-shielded-nodes
 ```
 
@@ -65,7 +66,41 @@ gcloud projects add-iam-policy-binding ${DEVSHELL_PROJECT_ID} \
 --role=roles/monitoring.viewer
 ```
 
-## Passo 4: Implantar o OpenTelemetry Collector no Kubernetes
+## Passo 4: Conexão com o cluster
+
+Faça a conexão com o cluster:
+
+```
+gcloud container clusters get-credentials poc-sqlcommenter-cluster-1 --region us-central1 --project ${DEVSHELL_PROJECT_ID}
+```
+
+## Passo 5: Configurar a política do IAM para a conta de serviço do Kubernetes
+
+Crie uma política do IAM que permita que a ServiceAccount do Kubernetes personifique a conta de serviço do IAM.
+
+```shell
+gcloud iam service-accounts add-iam-policy-binding opentelemetry-collector@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com \
+--role roles/iam.workloadIdentityUser \
+--member "serviceAccount:$DEVSHELL_PROJECT_ID.svc.id.goog[default/opentelemetry-collector-ksa]"
+```
+
+## Passo 6: Anotar a ServiceAccount do Kubernetes
+
+Faça a execução do comando abaixo para criar conta de serviço:
+
+```shell
+kubectl create serviceaccount opentelemetry-collector-ksa
+```
+
+Anote a ServiceAccount do Kubernetes para estabelecer a associação entre a conta de serviço do Kubernetes e a conta de serviço do IAM.
+
+```shell
+kubectl annotate serviceaccount opentelemetry-collector-ksa \
+--namespace default \
+iam.gke.io/gcp-service-account=opentelemetry-collector@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com
+```
+
+## Passo 7: Implantar o OpenTelemetry Collector no Kubernetes
 
 Faça a conexão com o cluster:
 
@@ -83,26 +118,6 @@ Ou
 
 ```shell
 kubectl apply -f https://raw.githubusercontent.com/ReinanHS/sample-sqlcommenter-hyperf-poc/main/.k8s/otel-collector.yaml
-```
-
-## Passo 5: Configurar a política do IAM para a conta de serviço do Kubernetes
-
-Crie uma política do IAM que permita que a ServiceAccount do Kubernetes personifique a conta de serviço do IAM.
-
-```shell
-gcloud iam service-accounts add-iam-policy-binding opentelemetry-collector@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com \
---role roles/iam.workloadIdentityUser \
---member "serviceAccount:$DEVSHELL_PROJECT_ID.svc.id.goog[default/opentelemetry-collector-ksa]"
-```
-
-## Passo 6: Anotar a ServiceAccount do Kubernetes
-
-Anote a ServiceAccount do Kubernetes para estabelecer a associação entre a conta de serviço do Kubernetes e a conta de serviço do IAM.
-
-```shell
-kubectl annotate serviceaccount opentelemetry-collector-ksa \
---namespace default \
-iam.gke.io/gcp-service-account=opentelemetry-collector@$DEVSHELL_PROJECT_ID.iam.gserviceaccount.com
 ```
 
 Seguindo esses passos, você terá configurado corretamente o OpenTelemetry Collector no Google Cloud, permitindo a coleta e monitoramento eficaz dos dados de observabilidade em seu ambiente de teste.
