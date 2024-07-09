@@ -13,7 +13,7 @@ gcloud beta container --project ${DEVSHELL_PROJECT_ID} clusters create "poc-sqlc
 --no-enable-basic-auth \
 --cluster-version "1.29.4-gke.1043004" \
 --release-channel "regular" \
---machine-type "e2-custom-2-1024" \
+--machine-type "e2-custom-2-4096" \
 --image-type "COS_CONTAINERD" \
 --disk-type "pd-balanced" \
 --disk-size "10" \
