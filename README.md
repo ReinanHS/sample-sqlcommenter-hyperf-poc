@@ -125,7 +125,7 @@ Implante sua aplicação no Cloud Run com as seguintes configurações:
 gcloud run deploy sample-sqlcommenter-hyperf-poc \
 --image=reinanhs/sample-sqlcommenter-hyperf-poc:benchmarking \
 --allow-unauthenticated \
---memory=2Gi \
+--memory=1Gi \
 --concurrency=1000 \
 --min-instances=1 \
 --max-instances=1 \
@@ -168,6 +168,13 @@ curl "${APP_URL}/employees"
 
 ```sh
 curl "${APP_URL}/callable"
+```
+
+#### k6 test
+
+```sh
+k6 run -e APP_HOSTNAME=https://test.k6.io .k6/try-script.js
+k6 run -e APP_HOSTNAME=https://test.k6.io .k6/performance-script.js
 ```
 
 ### Passo 8: Limpeza dos recursos
