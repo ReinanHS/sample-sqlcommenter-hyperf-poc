@@ -5,17 +5,40 @@ Seguindo as instruções abaixo, você será capaz de configurar um cluster Kube
 
 ## Passo 1: Criar um Cluster Kubernetes no GKE
 
-Use o comando abaixo para criar um cluster Kubernetes no modo autopilot. Este cluster será utilizado para hospedar o OpenTelemetry Collector.
+Use o comando abaixo para criar um cluster Kubernetes. Este cluster será utilizado para hospedar o OpenTelemetry Collector.
 
 ```shell
-gcloud beta container --project $DEVSHELL_PROJECT_ID clusters create-auto "poc-sqlcommenter-autopilot-cluster-1" \
+gcloud beta container --project ${DEVSHELL_PROJECT_ID} clusters create "poc-sqlcommenter-autopilot-cluster-1" \
 --region "us-central1" \
+--no-enable-basic-auth \
+--cluster-version "1.29.4-gke.1043004" \
 --release-channel "regular" \
---network "projects/$DEVSHELL_PROJECT_ID/global/networks/default" \
---subnetwork "projects/$DEVSHELL_PROJECT_ID/regions/us-central1/subnetworks/default" \
---cluster-ipv4-cidr "/17" \
+--machine-type "e2-custom-2-1024" \
+--image-type "COS_CONTAINERD" \
+--disk-type "pd-balanced" \
+--disk-size "10" \
+--metadata disable-legacy-endpoints=true \
+--scopes "https://www.googleapis.com/auth/devstorage.read_only","https://www.googleapis.com/auth/logging.write","https://www.googleapis.com/auth/monitoring","https://www.googleapis.com/auth/servicecontrol","https://www.googleapis.com/auth/service.management.readonly","https://www.googleapis.com/auth/trace.append" \
+--spot \
+--num-nodes "1" \
+--logging=SYSTEM,WORKLOAD \
+--monitoring=SYSTEM \
+--enable-ip-alias \
+--network "projects/${DEVSHELL_PROJECT_ID}/global/networks/default" \
+--subnetwork "projects/${DEVSHELL_PROJECT_ID}/regions/us-central1/subnetworks/default" \
+--no-enable-intra-node-visibility \
+--default-max-pods-per-node "110" \
+--security-posture=standard \
+--workload-vulnerability-scanning=disabled \
+--no-enable-master-authorized-networks \
+--addons HorizontalPodAutoscaling,HttpLoadBalancing,GcePersistentDiskCsiDriver \
+--enable-autoupgrade \
+--enable-autorepair \
+--max-surge-upgrade 1 \
+--max-unavailable-upgrade 0 \
 --binauthz-evaluation-mode=DISABLED \
---enable-dataplane-v2-flow-observability
+--enable-managed-prometheus \
+--enable-shielded-nodes
 ```
 
 ## Passo 2: Criar uma conta de serviço para o OpenTelemetry Collector
@@ -48,6 +71,12 @@ Aplique o arquivo de configuração do OpenTelemetry Collector no cluster Kubern
 
 ```shell
 kubectl apply -f .k8s/otel-collector.yaml
+```
+
+Ou
+
+```shell
+kubectl apply -f https://raw.githubusercontent.com/ReinanHS/sample-sqlcommenter-hyperf-poc/main/.k8s/otel-collector.yaml
 ```
 
 ## Passo 5: Configurar a política do IAM para a conta de serviço do Kubernetes
