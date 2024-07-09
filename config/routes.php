@@ -23,10 +23,15 @@ Router::addRoute(['GET', 'POST', 'HEAD'], '/employees', EmployeeController::clas
 Router::addRoute(['GET', 'POST', 'HEAD'], '/departments', DepartmentController::class);
 Router::addRoute(['GET', 'POST', 'HEAD'], '/titles', TitleController::class);
 Router::addRoute(['GET', 'POST', 'HEAD'], '/tchecksum', TchecksumController::class);
+
 Router::addRoute(['GET', 'POST', 'HEAD'], '/callable', function (Response $response): ResponseInterface {
     $data = Db::select('SELECT CONNECTION_ID()');
 
     return $response->json(['status' => 'ok', 'data' => $data])->withStatus(200);
+});
+
+Router::addRoute(['GET', 'POST', 'HEAD'], '/hello', function (Response $response): ResponseInterface {
+    return $response->json(['status' => 'ok', 'data' => 'Hello'])->withStatus(200);
 });
 
 Router::get('/favicon.ico', function () {
