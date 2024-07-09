@@ -20,12 +20,12 @@ use Symfony\Component\HttpFoundation\Response as StatusCodes;
  * @internal
  * @coversNothing
  */
-class EmployeeSalaryHistoryControllerTest extends HttpTestCase
+class DepartmentControllerTest extends HttpTestCase
 {
-    public function testGetSalaryHistory(): void
+    public function testIndex(): void
     {
         /** @var ResponseInterface $response */
-        $response = $this->request('GET', '/employee-salary-history/getSalaryHistory');
+        $response = $this->request('GET', '/departments');
 
         $this->assertEquals(StatusCodes::HTTP_OK, $response->getStatusCode());
         $this->assertEquals('application/json; charset=utf-8', $response->getHeaderLine('Content-Type'));

@@ -11,6 +11,7 @@ declare(strict_types=1);
  */
 use App\Processor\LogCustomProcessor;
 use Monolog\Formatter\GoogleCloudLoggingFormatter;
+use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\StreamHandler;
 use Monolog\Level;
 
@@ -31,6 +32,21 @@ return [
         ],
         'processors' => [
             new LogCustomProcessor(),
+        ],
+    ],
+    'test' => [
+        'handler' => [
+            'class' => StreamHandler::class,
+            'constructor' => [
+                'stream' => BASE_PATH . '/runtime/logs/hyperf.log',
+                'level' => Level::Debug,
+            ],
+        ],
+        'formatter' => [
+            'class' => LineFormatter::class,
+            'constructor' => [
+                'includeStacktraces' => true,
+            ],
         ],
     ],
 ];

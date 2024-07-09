@@ -10,6 +10,7 @@ declare(strict_types=1);
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
 use Hyperf\Contract\ApplicationInterface;
+use Hyperf\Contract\ConfigInterface;
 use Hyperf\Di\ClassLoader;
 use Hyperf\Engine\DefaultOption;
 use Swoole\Runtime;
@@ -39,5 +40,8 @@ require BASE_PATH . '/vendor/autoload.php';
 ClassLoader::init();
 
 $container = require BASE_PATH . '/config/container.php';
+
+$config = $container->get(ConfigInterface::class);
+$config->set('logger.default', $config->get('logger.test'));
 
 $container->get(ApplicationInterface::class);

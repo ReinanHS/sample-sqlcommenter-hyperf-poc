@@ -17,10 +17,10 @@ use Hyperf\HttpServer\Annotation\AutoController;
 use Hyperf\HttpServer\Contract\ResponseInterface as HttpResponse;
 use Psr\Http\Message\ResponseInterface;
 
-#[AutoController(prefix: 'employee-salary-history')]
-class EmployeeSalaryHistoryController
+#[AutoController(prefix: 'salary')]
+class SalaryController
 {
-    public function getSalaryHistory(HttpResponse $response): ResponseInterface
+    public function history(HttpResponse $response): ResponseInterface
     {
         $salaryHistory = Db::table('employees as e')
             ->join('dept_emp as de', 'e.emp_no', '=', 'de.emp_no')

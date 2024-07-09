@@ -17,7 +17,7 @@ use Hyperf\DbConnection\Db;
 use Hyperf\HttpServer\Response;
 use Psr\Http\Message\ResponseInterface;
 
-class EmployeesController
+class EmployeeController
 {
     public function __invoke(Response $response): ResponseInterface
     {
