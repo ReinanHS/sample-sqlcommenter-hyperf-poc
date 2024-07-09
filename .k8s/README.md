@@ -8,7 +8,7 @@ Seguindo as instruções abaixo, você será capaz de configurar um cluster Kube
 Use o comando abaixo para criar um cluster Kubernetes. Este cluster será utilizado para hospedar o OpenTelemetry Collector.
 
 ```shell
-gcloud beta container --project ${DEVSHELL_PROJECT_ID} clusters create "poc-sqlcommenter-autopilot-cluster-1" \
+gcloud beta container --project ${DEVSHELL_PROJECT_ID} clusters create "poc-sqlcommenter-cluster-1" \
 --region "us-central1" \
 --no-enable-basic-auth \
 --cluster-version "1.29.4-gke.1043004" \
@@ -66,6 +66,12 @@ gcloud projects add-iam-policy-binding ${DEVSHELL_PROJECT_ID} \
 ```
 
 ## Passo 4: Implantar o OpenTelemetry Collector no Kubernetes
+
+Faça a conexão com o cluster:
+
+```
+gcloud container clusters get-credentials poc-sqlcommenter-cluster-1 --region us-central1 --project ${DEVSHELL_PROJECT_ID}
+```
 
 Aplique o arquivo de configuração do OpenTelemetry Collector no cluster Kubernetes.
 
