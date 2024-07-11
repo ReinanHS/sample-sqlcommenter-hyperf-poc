@@ -89,6 +89,7 @@ gsutil iam ch serviceAccount:${CLOUD_SQL_SA_NAME}:roles/storage.objectAdmin gs:/
 O banco de dados completo utilizado para a realização dos testes pode ser encontrado no site oficial do MySQL:
 
 - [MySQL: Employee database](https://dev.mysql.com/doc/index-other.html)
+- [Link para download simplificado no meu Dropbox](https://www.dropbox.com/scl/fi/zlxt1ssmgkv6ukdefgng9/sample-sqlcommenter-database.zip?rlkey=9hnblnc3i0356wxps9vz3v4ud&st=soi1rveu&dl=0)
 
 Importe o banco de dados para a instância criada:
 
