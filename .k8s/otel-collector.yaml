@@ -10,6 +10,7 @@ data:
   otel-collector-config: |
     receivers:
       zipkin:
+        endpoint: 0.0.0.0:9411
 
     exporters:
       googlecloud:
