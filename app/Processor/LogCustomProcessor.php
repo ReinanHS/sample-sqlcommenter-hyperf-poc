@@ -14,6 +14,7 @@ namespace App\Processor;
 
 use Hyperf\Context\ApplicationContext;
 use Hyperf\Context\Context;
+use Monolog\Level;
 use Monolog\LogRecord;
 use OpenTracing\Span;
 use OpenTracing\Tracer;
@@ -35,7 +36,15 @@ class LogCustomProcessor
 
             $trace->inject(spanContext: $root->getContext(), format: TEXT_MAP, carrier: $context);
             if ($context) {
-                $record['extra'] = array_merge((array) $record['extra'], $this->processLoggingGoogleAPIs($context));
+                return new LogRecord(
+                    datetime: $record['datetime'],
+                    channel: $record['channel'],
+                    level: Level::fromValue($record['level']),
+                    message: $record['message'],
+                    context: array_merge((array) $record['context'], $this->processLoggingGoogleAPIs($context)),
+                    extra: $record['extra'],
+                    formatted: $record['formatted']
+                );
             }
         }
 

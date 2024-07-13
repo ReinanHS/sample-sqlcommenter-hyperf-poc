@@ -135,6 +135,7 @@ gcloud run deploy sample-sqlcommenter-hyperf-poc \
 --set-env-vars=DB_USERNAME=$DB_USERNAME \
 --set-env-vars=DB_PASSWORD=$DB_PASSWORD \
 --set-env-vars=SQLCOMMENTER_ENABLE=1 \
+--set-env-vars=GCP_PROJECT_ID=$DEVSHELL_PROJECT_ID \
 --no-cpu-throttling \
 --region=us-central1 \
 --network=default \
@@ -174,8 +175,8 @@ curl "${APP_URL}/callable"
 #### k6 test
 
 ```sh
-k6 run -e APP_HOSTNAME=https://test.k6.io .k6/try-script.js
-k6 run -e APP_HOSTNAME=https://test.k6.io .k6/performance-script.js
+k6 run -e APP_HOSTNAME=${APP_URL} .k6/try-script.js
+k6 run -e APP_HOSTNAME=${APP_URL} .k6/performance-script.js
 ```
 
 ### Passo 8: Limpeza dos recursos

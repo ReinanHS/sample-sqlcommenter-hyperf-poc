@@ -4,10 +4,10 @@ import { randomItem } from 'https://jslib.k6.io/k6-utils/1.2.0/index.js';
 
 export const options = {
     stages: [
-        { duration: '1m', target: 50 },
-        { duration: '2m', target: 100 },
-        { duration: '2m', target: 200 },
-        { duration: '4m', target: 50 },
+        { duration: '1m', target: 10 },
+        { duration: '2m', target: 50 },
+        { duration: '2m', target: 80 },
+        { duration: '4m', target: 10 },
     ],
     thresholds: {
         http_req_duration: ['p(95)<3000'], // 95% das requisições devem ser concluídas em menos de 2 segundos
