@@ -68,6 +68,7 @@ gcloud sql instances create sample-sqlcommenter-database \
     --insights-config-query-insights-enabled \
     --insights-config-record-application-tags \
     --insights-config-record-client-address \
+    --insights-config-query-string-length=1024 \
     --no-deletion-protection \
     --edition=ENTERPRISE
 ```
