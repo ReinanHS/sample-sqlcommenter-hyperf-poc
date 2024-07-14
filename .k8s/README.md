@@ -11,7 +11,6 @@ Use o comando abaixo para criar um cluster Kubernetes. Este cluster será utiliz
 gcloud beta container --project ${DEVSHELL_PROJECT_ID} clusters create "poc-sqlcommenter-cluster-1" \
 --region "us-central1" \
 --no-enable-basic-auth \
---cluster-version "1.29.4-gke.1043004" \
 --release-channel "regular" \
 --machine-type "e2-custom-2-4096" \
 --image-type "COS_CONTAINERD" \
